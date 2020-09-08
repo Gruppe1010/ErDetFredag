@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.services.FridayClass; // import
 import com.example.demo.services.SimplestCalculater;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,16 @@ public class MyFirstController
     
     public String isItFriday()
     {
-    
+        FridayClass fridayClass = new FridayClass();
+        
+        boolean isItReallyFriday = fridayClass.friday();
+        
+        if(isItReallyFriday)
+        {
+            return "YAY, it's Friday";
+        }
+        
+        return "NAY, 'tis not Friday";
     
     }
     
